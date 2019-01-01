@@ -52,11 +52,47 @@ friends.clear()
 print(friends)
 
 ### Tuples
-# Tuple is const, no way to edit after initialization
-coordinates = (3, 4, 5)
-print(coordinates)
-print(coordinates[2])
+## Tuple is const, no way to edit after initialization
+# coordinates = (3, 4, 5)
+# print(coordinates)
+# print(coordinates[2])
+
+
+### Dictionaries: using curly brakets
+# monthConversions = {
+#     # Key: Value
+#     1: "January",
+#     "Feb": "February",
+#     3: "March",
+#     "Apr": "April",
+#     5: "May",
+#     "Jun": "June",
+#     7: "July",
+#     "Aug": "August",
+#     9: "September",
+#     "Oct": "October",
+#     "Nov": "November",
+#     12: "December"
+# }
+#
+# print(monthConversions["Nov"])
+# print(monthConversions.get(3))
+# print(monthConversions.get(4)) # There  is a default value using .get() is the Key is not valid
 
 
 
-
+### 2D Lists & Nested Loops
+# grid = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9],
+#     [0]
+# ]
+#
+# print(grid)
+# print(grid[0])
+# print(grid[1][2])
+#
+# for row in grid:
+#     for elem in row:
+#         print("Element : " + str(elem) + "\t in Row : " + str(row))
