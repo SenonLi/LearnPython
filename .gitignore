@@ -38,6 +38,9 @@
 
 # PyCharm folder
 .idea
+__pycache__
+Tutorial/__pycache__
+*.pyc
 
 # Visual C++ cache files
 *.aps
