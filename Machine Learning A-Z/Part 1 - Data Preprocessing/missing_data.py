@@ -1,8 +1,9 @@
 # Data Preprocessing
 
 # Importing the libraries
-import numpy as np
-import matplotlib.pyplot as plt
+# import numpy as np
+# import matplotlib.pyplot as plt
+#  library pandas offers data structures and operations for manipulating numerical tables and time series
 import pandas as pd
 
 # Importing the dataset

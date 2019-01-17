@@ -62,3 +62,7 @@ Tutorial/__pycache__
 *.pdb
 *.ilk
 *.exp
+
+# RStudio files
+*.RData
+*.Rhistory

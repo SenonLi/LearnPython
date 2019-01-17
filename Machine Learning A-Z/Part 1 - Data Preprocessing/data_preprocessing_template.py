@@ -16,12 +16,14 @@ Y_dependent = dataset.iloc[:, 3].values
 # Tip: ‘NaN’ has to be replaced by ‘np.nan’. This is due to an update in the sklearn library.
 
 # Taking care of missing data
-#  scikit-learn : machine learning library in python
+#   scikit-learn : machine learning library in python
 # sklearn.preprocessing.Imputer: help process missing data
 from sklearn.preprocessing import Imputer
-imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
-imputer = imputer.fit(X[:, 1:3])
-X[:, 1:3] = imputer.transform(X[:, 1:3])
+imputer = Imputer(missing_values='NaN', strategy='mean', axis=0)
+# make the imputer fit on X_feature
+imputer = imputer.fit(X_feature[:, 1:3])  # Upper bound is excluded, so index 1 and 2 columns are included
+#Replace the missing data of the matrix X_feature by the mean of the column
+X_feature[:, 1:3] = imputer.transform(X_feature[:, 1:3])
 
 # # Splitting the dataset into the Training set and Test set
 # from sklearn.cross_validation import train_test_split
