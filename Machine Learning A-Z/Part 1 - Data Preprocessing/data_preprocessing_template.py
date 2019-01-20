@@ -6,24 +6,23 @@ import matplotlib.pyplot as plt     # help plot charts
 import pandas as pd                 # import data sets and manage data sets
 
 # 1. Importing the dataset
-dataset = pd.read_csv('Data.csv' )
-dataset = pd.read_csv('Data.csv')
+df = pd.read_csv('Data.csv' )
 
 # 2. Need to determine the data feature (Independent data) and the dependent variables
-X_feature = dataset.iloc[:, :-1].values     # symbol : means we take all the rows, and all the columns except the last one.
-Y_dependent = dataset.iloc[:, 3].values
+X_feature = df.iloc[:, :-1].values     # symbol : means we take all the rows, and all the columns except the last one.
+Y_dependent = df.iloc[:, 3].values
 
 # Tip: ‘NaN’ has to be replaced by ‘np.nan’. This is due to an update in the sklearn library.
 
 # Taking care of missing data
 #   scikit-learn : machine learning library in python
-# sklearn.preprocessing.Imputer: help process missing data
-from sklearn.preprocessing import Imputer
-imputer = Imputer(missing_values='NaN', strategy='mean', axis=0)
+# sklearn.impute: help process missing data
+from sklearn.impute import SimpleImputer
+imp = SimpleImputer(missing_values = np.nan, strategy='mean')
 # make the imputer fit on X_feature
-imputer = imputer.fit(X_feature[:, 1:3])  # Upper bound is excluded, so index 1 and 2 columns are included
+imp = imp.fit(X_feature[:, 1:3])  # Upper bound is excluded, so index 1 and 2 columns are included
 #Replace the missing data of the matrix X_feature by the mean of the column
-X_feature[:, 1:3] = imputer.transform(X_feature[:, 1:3])
+X_feature[:, 1:3] = imp.transform(X_feature[:, 1:3])
 
 # # Splitting the dataset into the Training set and Test set
 # from sklearn.cross_validation import train_test_split

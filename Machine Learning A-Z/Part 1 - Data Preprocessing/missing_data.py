@@ -1,18 +1,24 @@
 # Data Preprocessing
 
 # Importing the libraries
-# import numpy as np
 # import matplotlib.pyplot as plt
 #  library pandas offers data structures and operations for manipulating numerical tables and time series
+import numpy as np
 import pandas as pd
 
 # Importing the dataset
-dataset = pd.read_csv('Data.csv')
-X = dataset.iloc[:, :-1].values
-y = dataset.iloc[:, 3].values
+df = pd.read_csv('Data.csv')
+X = df.iloc[:, :-1].values
+y = df.iloc[:, 3].values
 
 # Taking care of missing data
-from sklearn.preprocessing import Imputer
-imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
-imputer = imputer.fit(X[:, 1:3])
-X[:, 1:3] = imputer.transform(X[:, 1:3])
+from sklearn.impute import SimpleImputer
+imp = SimpleImputer(missing_values = np.nan, strategy = 'mean')
+imp = imp.fit(X[:, 1:3])
+X[:, 1:3] = imp.transform(X[:, 1:3])
+
+# GroupBy of DataFrame test
+# dfGroup = df.groupby('Purchased')
+# for Purchased in dfGroup:
+#     print(Purchased)
+
