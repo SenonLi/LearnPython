@@ -1,4 +1,4 @@
-# Data Preprocessing
+ # Data Preprocessing
 
 # Importing the libraries
 # import matplotlib.pyplot as plt
@@ -21,4 +21,3 @@ X[:, 1:3] = imp.transform(X[:, 1:3])
 # dfGroup = df.groupby('Purchased')
 # for Purchased in dfGroup:
 #     print(Purchased)
-
